@@ -45,3 +45,9 @@ DELETE FROM address_book WHERE first_name = 'Phoebe' AND last_name = 'Buffay';
 ```
 SELECT * FROM address_book WHERE city = 'Bangalore' OR state = 'Karnataka';
 ```
+
+#### Retrieve count of contacts by city and state
+```
+SELECT city, COUNT(first_name) FROM address_book GROUP BY city;
+SELECT state, COUNT(first_name) FROM address_book GROUP BY state;
+```
