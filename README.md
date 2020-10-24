@@ -40,3 +40,8 @@ UPDATE address_book SET address = 'S.K.Nagar' WHERE first_name = 'Joey' AND last
 ```
 DELETE FROM address_book WHERE first_name = 'Phoebe' AND last_name = 'Buffay';
 ```
+
+#### Retrieve a Particular Contact
+```
+SELECT * FROM address_book WHERE city = 'Bangalore' OR state = 'Karnataka';
+```
