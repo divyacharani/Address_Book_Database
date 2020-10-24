@@ -56,3 +56,13 @@ SELECT state, COUNT(first_name) FROM address_book GROUP BY state;
 ```
 SELECT * FROM address_book WHERE city = 'Mumbai' ORDER BY first_name;
 ```
+
+#### Add address book name and type
+```
+ALTER TABLE address_book ADD book_name VARCHAR(20) NOT NULL;
+ALTER TABLE address_book ADD type VARCHAR(20) NOT NULL;
+UPDATE address_book set book_name = 'myContacts', type='Friends' where first_name = 'Joey';
+UPDATE address_book set book_name = 'myContacts', type='Profession' where first_name = 'Rachel';
+UPDATE address_book set book_name = 'myContacts', type='Profession' where first_name = 'Monica';
+UPDATE address_book set book_name = 'myContacts', type='Family' where first_name = 'Chandler';
+```
