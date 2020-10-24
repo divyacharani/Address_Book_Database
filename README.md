@@ -29,3 +29,9 @@ INSERT INTO address_book
 ('Monica','Geller','Thane','Mumbai','Maharashtra',456789,8978765645,'monica@gmail.com'),
 ('Phoebe','Buffay','Agra','Delhi','Delhi',343423,9934569023,'phoebe@gmail.com');
 ```
+
+#### Edit Contact using person name
+```
+UPDATE address_book SET phone_number = 8976897654 WHERE first_name = 'Monica' AND last_name = 'Geller';
+UPDATE address_book SET address = 'S.K.Nagar' WHERE first_name = 'Joey' AND last_name = 'Tribiyani';
+```
