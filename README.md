@@ -35,3 +35,8 @@ INSERT INTO address_book
 UPDATE address_book SET phone_number = 8976897654 WHERE first_name = 'Monica' AND last_name = 'Geller';
 UPDATE address_book SET address = 'S.K.Nagar' WHERE first_name = 'Joey' AND last_name = 'Tribiyani';
 ```
+
+#### Delete contact using person name
+```
+DELETE FROM address_book WHERE first_name = 'Phoebe' AND last_name = 'Buffay';
+```
