@@ -51,3 +51,8 @@ SELECT * FROM address_book WHERE city = 'Bangalore' OR state = 'Karnataka';
 SELECT city, COUNT(first_name) FROM address_book GROUP BY city;
 SELECT state, COUNT(first_name) FROM address_book GROUP BY state;
 ```
+
+#### Retrieve contacts order by person name for a given city
+```
+SELECT * FROM address_book WHERE city = 'Mumbai' ORDER BY first_name;
+```
