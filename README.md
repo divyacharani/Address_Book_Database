@@ -66,3 +66,8 @@ UPDATE address_book set book_name = 'myContacts', type='Profession' where first_
 UPDATE address_book set book_name = 'myContacts', type='Profession' where first_name = 'Monica';
 UPDATE address_book set book_name = 'myContacts', type='Family' where first_name = 'Chandler';
 ```
+
+#### Retrieve contacts count by book type
+```
+SELECT type, COUNT(first_name) from address_book GROUP BY type;
+```
