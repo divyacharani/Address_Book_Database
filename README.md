@@ -19,3 +19,13 @@ phone_number BIGINT NOT NULL,
 email_id     VARCHAR(20) NOT NULL,
 PRIMARY KEY  (first_name, last_name));
 ```
+#### Add Contacts into Address Book Table
+```
+INSERT INTO address_book 
+(first_name, last_name, address, city, state, zip, phone_number, email_id) VALUES
+('Chandler','Bing','M.G.Road','Bangalore','Karnataka',123456,9876543210,'chandler@gmail.com'),
+('Joey','Tribiyani','S.R.Nagar','Chennai','Tamil Nadu',234567,7890654345,'joey@gmail.com'),
+('Rachel','Green','Begumpet','Hyderabad','Telangana',345678,7896592346,'rachel@gmail.com'),
+('Monica','Geller','Thane','Mumbai','Maharashtra',456789,8978765645,'monica@gmail.com'),
+('Phoebe','Buffay','Agra','Delhi','Delhi',343423,9934569023,'phoebe@gmail.com');
+```
