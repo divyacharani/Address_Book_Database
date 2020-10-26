@@ -61,13 +61,26 @@ SELECT * FROM address_book WHERE city = 'Mumbai' ORDER BY first_name;
 ```
 ALTER TABLE address_book ADD book_name VARCHAR(20) NOT NULL;
 ALTER TABLE address_book ADD type VARCHAR(20) NOT NULL;
-UPDATE address_book set book_name = 'myContacts', type='Friends' where first_name = 'Joey';
-UPDATE address_book set book_name = 'myContacts', type='Profession' where first_name = 'Rachel';
-UPDATE address_book set book_name = 'myContacts', type='Profession' where first_name = 'Monica';
-UPDATE address_book set book_name = 'myContacts', type='Family' where first_name = 'Chandler';
+UPDATE address_book SET book_name = 'myContacts', type='Friends' WHERE first_name = 'Joey';
+UPDATE address_book SET book_name = 'myContacts', type='Profession' WHERE first_name = 'Rachel';
+UPDATE address_book SET book_name = 'myContacts', type='Profession' WHERE first_name = 'Monica';
+UPDATE address_book SET book_name = 'myContacts', type='Family' WHERE first_name = 'Chandler';
 ```
 
 #### Retrieve contacts count by book type
 ```
-SELECT type, COUNT(first_name) from address_book GROUP BY type;
+SELECT type, COUNT(first_name) FROM address_book GROUP BY type;
 ```
+
+#### Add person to both family and friend
+```
+ALTER TABLE address_book DROP PRIMARY KEY;
+ALTER TYPE address_book ADD PRIMARY KEY (first_name, last_name, type);
+ INSERT INTO address_book 
+(first_name, last_name, address, city, state, zip, phone_number, email_id, book_name, type) VALUES 
+('Rohith','Sharma','K.T.Nagar','Bangalore','Karnataka',347621,7890654567,'rohith@gmail.com','myContacts','Friends');
+ INSERT INTO address_book 
+(first_name, last_name, address, city, state, zip, phone_number, email_id, book_name, type) VALUES 
+('Rohith','Sharma','K.T.Nagar','Bangalore','Karnataka',347621,7890654567,'rohith@gmail.com','myContacts','Family');
+```
+
