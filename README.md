@@ -84,3 +84,41 @@ ALTER TYPE address_book ADD PRIMARY KEY (first_name, last_name, type);
 ('Rohith','Sharma','K.T.Nagar','Bangalore','Karnataka',347621,7890654567,'rohith@gmail.com','myContacts','Family');
 ```
 
+#### Implement ER Diagram
+DROP TABLE address_book;
+CREATE TABLE contact (
+    contact_id INT NOT NULL,
+    first_name VARCHAR(20) NOT NULL,
+    last_name VARCHAR(20) NOT NULL,
+    address VARCHAR(250) NOT NULL,
+    city VARCHAR(20) NOT NULL,
+    state VARCHAR(20) NOT NULL,
+    zip INT NOT NULL,
+    phone_number BIGINT NOT NULL,
+    email_id VARCHAR(20) NOT NULL,
+    PRIMARY KEY (contact_id)
+);
+
+CREATE TABLE address_book_name (
+    book_id INT NOT NULL,
+    book_name VARCHAR(20) NOT NULL,
+    PRIMARY KEY (book_id)
+);
+
+
+CREATE TABLE address_book_type (
+    type_id INT NOT NULL,
+    type_name VARCHAR(20) NOT NULL,
+    PRIMARY KEY (type_id)
+);
+
+
+CREATE TABLE dictionary (
+    contact_id INT NOT NULL,
+    book_id INT NOT NULL,
+    type_id INT NOT NULL,
+    FOREIGN KEY (contact_id) REFERENCES contact (contact_id),
+    FOREIGN KEY (book_id) REFERENCES address_book_name (book_id),
+    FOREIGN KEY (type_id) REFERENCES address_book_type (type_id)
+);
+
