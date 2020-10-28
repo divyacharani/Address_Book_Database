@@ -85,6 +85,7 @@ ALTER TYPE address_book ADD PRIMARY KEY (first_name, last_name, type);
 ```
 
 #### Implement ER Diagram
+```
 DROP TABLE address_book;
 CREATE TABLE contact (
     contact_id INT NOT NULL,
@@ -121,4 +122,43 @@ CREATE TABLE dictionary (
     FOREIGN KEY (book_id) REFERENCES address_book_name (book_id),
     FOREIGN KEY (type_id) REFERENCES address_book_type (type_id)
 );
+```
+#### Insert data into tables
+```
+INSERT INTO contact  VALUES
+(1, 'Chandler','Bing','M.G.Road','Bangalore','Karnataka',123456,9876543210,'chandler@gmail.com'),
+(2, 'Joey','Tribiyani','S.R.Nagar','Chennai','Tamil Nadu',234567,7890654345,'joey@gmail.com'),
+(3, 'Rachel','Green','Begumpet','Hyderabad','Telangana',345678,7896592346,'rachel@gmail.com'),
+(4, 'Monica','Geller','Thane','Mumbai','Maharashtra',456789,8978765645,'monica@gmail.com'),
+(5, 'Phoebe','Buffay','Agra','Delhi','Delhi',343423,9934569023,'phoebe@gmail.com');
 
+INSERT INTO address_book_name VALUES
+(101, 'myContacts'),
+(102, 'officeContacts');
+
+INSERT INTO address_book_type VALUES
+(50, 'Family'),
+(51, 'Friend'),
+(52, 'Professional');
+
+INSERT INTO dictionary VALUES
+(1,101,50),
+(2,101,51),
+(3,101,50),
+(4,101,50),
+(5,102,52);
+```
+
+#### Retrieve Contact Details
+```
+SELECT * FROM contact WHERE city = 'Bangalore' OR state = 'Karnataka';
+
+SELECT city, COUNT(contact_id) FROM contact GROUP BY city;
+SELECT state, COUNT(contact_id) FROM contact GROUP BY state;
+
+SELECT * FROM contact WHERE city = 'Mumbai' ORDER BY first_name;
+
+SELECT address_book_type.type_name, COUNT(dictionary.contact_id) FROM dictionary
+INNER JOIN address_book_type ON address_book_type.type_id = dictionary.type_id
+GROUP BY dictionary.type_id;
+```
